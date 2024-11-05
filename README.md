@@ -1,2 +1,2 @@
-# PoseUebung-008
-Print Spooler
+# PoseUebung-008 -- Print Spooler (Generic)
+
