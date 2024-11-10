@@ -7,8 +7,7 @@ internal class Program
   static void Main()
   {
     Console.Write("\n Print Spooler \n");
-
-
+    /*
     ClassLib.Queue<PrintDataSet> printerSpooler = new();
 
     PrintDataSet set1 = new(10);
@@ -25,8 +24,11 @@ internal class Program
     printerSpooler.Remove();
     printerSpooler.Remove();
 
-
     Console.WriteLine(printerSpooler);
     Console.WriteLine(printerSpooler.Count);
+    */
+
+    PrintSpoolerQueue<PrintJob> druckwarteschlange = new();
+    druckwarteschlange.Add(new Element<PrintJob>(new PrintJob() , 10));
   }
 }

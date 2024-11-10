@@ -19,6 +19,9 @@ public class PrintJob
   #endregion
 
   #region OVERRIDES
-
+  public override string ToString()
+  {
+    return "Druckauftrag";
+  }
   #endregion
 }

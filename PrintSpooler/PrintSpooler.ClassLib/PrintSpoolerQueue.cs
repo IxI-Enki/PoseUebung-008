@@ -1,11 +1,9 @@
-﻿
-namespace PrintSpooler.ClassLib;
+﻿namespace PrintSpooler.ClassLib;
 
 public class PrintSpoolerQueue<T>
 {
   #region FIELDS
   private Element<T>? _first = null;
-
   #endregion
 
   #region PROPERTIES
@@ -16,16 +14,20 @@ public class PrintSpoolerQueue<T>
   }
   #endregion
 
-  #region CONSTRUCTOR
-
-  #endregion
-
   #region METHODS
-
+  public bool Add(Element<T> element) 
+    => throw new NotImplementedException();
+  public bool RemoveFirst() 
+    => throw new NotImplementedException();
+  public bool Remove(Element<T> element) 
+    => throw new NotImplementedException();
+  public Element<T> GetElement(Element<T> element) 
+    => throw new NotImplementedException();
   #endregion
 
   #region OVERRIDES
-
+  public override string? ToString()
+    => base.ToString();
   #endregion
 }
 
