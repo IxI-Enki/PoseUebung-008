@@ -1,45 +1,58 @@
 ﻿using System.Text;
-
 namespace PrintSpooler.ClassLib;
-
 public class Queue<T>
 {
   #region FIELDS
-  private Element<T>? _first = null;
+  private Element<PrintDataSet>? _first = null;
+  private int _count = 0;
   #endregion
 
   #region PROPERTIES
-  public Element<T>? First
+  public int Count
+  {
+    get
+    {
+      int count = 0;
+
+      if (_first == null)
+        return count;
+      if (_first != null)
+      {
+        Element<PrintDataSet> current = _first;
+
+        while (current != null)
+        {
+          current = current.Next!;
+          count++;
+        }
+        _count = count;
+      }
+      return _count;
+    }
+  }
+  public Element<PrintDataSet>? First
   {
     get => _first;
     set => _first = value;
   }
   #endregion
-
-  #region CONSTRUCTOR
-
-  #endregion
-
-  #region METHODS
-  public bool Add(T dataToAdd)
+ 
+  #region METHODS     // SPEZIELLE SYNTAX FÜR GENERISCHE PROGRAMMIERUNG BEISPIELHAFT
+  public bool Add<T>(T dataToAdd , int priority) where T : PrintDataSet
   {
-    if (_first == null)
-      _first = new Element<T>(dataToAdd);
+    if (_first == null && dataToAdd is PrintDataSet)
+      _first = new Element<PrintDataSet>(new PrintDataSet(priority));
     else
     {
-      Element<T> current = _first;
+      Element<PrintDataSet> current = _first!;
 
       while (current.Next != null)
         current = current.Next!;
 
-      current.Next = new Element<T>(dataToAdd);
+      current.Next = new Element<PrintDataSet>(new PrintDataSet(priority));
     }
     return true;
   }
-
-  #region PRIVATE HELPER METHODS
-
-
   public bool Remove()
   {
     if (_first != null)
@@ -49,15 +62,6 @@ public class Queue<T>
     }
     return false;
   }
-
-  public bool Remove(Element<T> elementToRemove)
-  {
-
-    return false;
-  }
-
-
-  #endregion
   #endregion
 
   #region OVERRIDES
@@ -67,7 +71,7 @@ public class Queue<T>
 
     if (_first != null)
     {
-      Element<T> current = _first;
+      Element<PrintDataSet> current = _first;
 
       while (current != null)
       {
@@ -100,6 +104,4 @@ public class Queue<T>
     #endregion
   }
   #endregion
-
-
 }
