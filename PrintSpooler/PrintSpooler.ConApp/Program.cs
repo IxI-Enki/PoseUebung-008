@@ -14,10 +14,10 @@ internal class Program
     PrintDataSet set2 = new(22);
     PrintDataSet set3 = new(111);
     PrintDataSet set4 = new(-3);
-    printerSpooler.Add( set1, 10);
-    printerSpooler.Add( set2, 22);
-    printerSpooler.Add( set3, 111);
-    printerSpooler.Add( set4, -3);
+    printerSpooler.Enqueue( set1, 10);
+    printerSpooler.Enqueue( set2, 22);
+    printerSpooler.Enqueue( set3, 111);
+    printerSpooler.Enqueue( set4, -3);
     Console.WriteLine(printerSpooler);
 
     printerSpooler.Remove();
@@ -28,7 +28,17 @@ internal class Program
     Console.WriteLine(printerSpooler.Count);
     */
 
-    PrintSpoolerQueue<PrintJob> druckwarteschlange = new();
-    druckwarteschlange.Add(new Element<PrintJob>(new PrintJob() , 10));
+    TextPrint text = new(priority: 10 , "Hello World");
+    ColoredTextPrint colorText = new(priority: 1 , "Hello colorfull World");
+    Console.WriteLine(text);
+    Console.WriteLine(colorText);
+
+
+
+    SpoolerQueue<PrintJob> druckwarteschlange = new();
+    druckwarteschlange.Enqueue(text);
+    druckwarteschlange.Enqueue(colorText);
+
+
   }
 }

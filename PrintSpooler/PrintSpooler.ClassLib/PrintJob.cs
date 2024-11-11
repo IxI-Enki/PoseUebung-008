@@ -1,27 +1,27 @@
 ﻿namespace PrintSpooler.ClassLib;
 
-public class PrintJob
+public abstract class PrintJob
 {
-  #region FIELDS
+  #region CONSTRUCTOR
+  public PrintJob(int priority)
+  {
+    _priority =
+      priority <= 0 ? 0 :
+      priority >= 99 ? 99 :
+      priority;
+  }
+  #endregion
 
+  #region FIELDS
+  private int _priority;
   #endregion
 
   #region PROPERTIES
-
-  #endregion
-
-  #region CONSTRUCTOR
-
-  #endregion
-
-  #region METHODS
-
+  public int Priority { get => _priority; }
   #endregion
 
   #region OVERRIDES
   public override string ToString()
-  {
-    return "Druckauftrag";
-  }
+    => $"Druckauftrag mit Priorität: {Priority}";
   #endregion
 }

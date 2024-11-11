@@ -49,6 +49,7 @@ public class Queue<T>
       while (current.Next != null)
         current = current.Next!;
 
+
       current.Next = new Element<PrintDataSet>(new PrintDataSet(priority));
     }
     return true;
