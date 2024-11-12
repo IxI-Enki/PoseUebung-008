@@ -18,7 +18,7 @@ public class SpoolerQueue<T>
     get
     {
       CheckQueueForEmptyness();
-      return _count = CalcCount(); 
+      return _count = CalcCount();
     }
   }
   public Element<T> this[ int orderNum ]
@@ -83,7 +83,7 @@ public class SpoolerQueue<T>
         return true;
       }
     else
-      throw new ArgumentNullException(nameof(printJob) ,$"{nameof(printJob)} - No valid PrintJob to add");
+      throw new ArgumentNullException(nameof(printJob) , $"{nameof(printJob)} - No valid PrintJob to add");
   }
   public bool Clear()
   {
@@ -146,7 +146,7 @@ public class SpoolerQueue<T>
     {
       if (current == new Element<T>(printJob))
         return new Element<T>(printJob);
-    
+
       current = current.Next!;
     }
     return null;
@@ -184,7 +184,7 @@ public class SpoolerQueue<T>
       currrent = currrent.Next!;
     }
 
-    this.ClearQueue();
+    this.Clear();
     this.First = newQueue.First;
   }
   private bool CheckQueueForEmptyness()
