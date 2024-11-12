@@ -13,7 +13,6 @@ public class Node<P, T>
 
   #region PROPERTIES
   public int OrderNum => _thisOrderNum;
-
   public P Priority { get => _priority; }
   public T? Data { get => _data; }
   public Node<P , T>? Next { get => _next; set => _next = value; }

@@ -1,5 +1,4 @@
-﻿using PrintSpooler.ClassLib;
-using System.Text;
+﻿using System.Text;
 namespace PrintSpooler.ClassLib;
 
 /// <summary>
@@ -75,7 +74,6 @@ public class PriorityQueue<P, T>
       else
       {
         Node<P , T> current = _first!;
-
         while (current.Next != null)
           current = current.Next!;
 
@@ -120,6 +118,7 @@ public class PriorityQueue<P, T>
     }
     return result;
   }
+
   private void UpdateOrderNum()
   {
     Node<P , T>? currrent = _first!;
@@ -134,6 +133,7 @@ public class PriorityQueue<P, T>
     this.Clear();
     this.First = newQueue.First;
   }
+
   private bool CheckQueueForEmptyness()
   {
     if (_first == null)
