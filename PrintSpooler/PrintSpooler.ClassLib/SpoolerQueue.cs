@@ -154,8 +154,6 @@ public class SpoolerQueue<T>
 
   public Element<T>[ ]? ToArray()
   {
-
-
     return null;
   }
 
