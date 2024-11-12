@@ -1,6 +1,6 @@
 # PoseUebung-008 -- Print Spooler (Generic)
 
-## Class PriorityQueue <sub><sub>(overview)</sub></sub>:  
+## Class PriorityQueue: <sub><sub>(overview)</sub></sub>  
  ![overview_queue](priorityQueue_Overview-1.png)  
 
 ---  
