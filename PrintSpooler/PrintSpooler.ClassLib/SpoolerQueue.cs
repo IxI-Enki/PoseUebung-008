@@ -18,7 +18,6 @@ public class SpoolerQueue<T>
     get
     {
       CheckQueueForEmptyness();
-
       return _count = CalcCount(); 
     }
   }
@@ -27,7 +26,6 @@ public class SpoolerQueue<T>
     get
     {
       CheckQueueForEmptyness();
-
       if (orderNum < 0 || orderNum > Count)
         throw new InvalidOperationException($"Invalid orderNum: {orderNum} chosen");
 
@@ -47,7 +45,6 @@ public class SpoolerQueue<T>
     get
     {
       CheckQueueForEmptyness();
-
       if (printElement == null)
         throw new ArgumentNullException($"Invalid Element: {printElement} chosen");
 
@@ -152,6 +149,13 @@ public class SpoolerQueue<T>
     
       current = current.Next!;
     }
+    return null;
+  }
+
+  public Element<T>[ ]? ToArray()
+  {
+
+
     return null;
   }
 
