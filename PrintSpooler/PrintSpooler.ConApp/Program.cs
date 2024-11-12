@@ -1,12 +1,12 @@
-﻿using PrintSpooler.ClassLib;
-
-namespace PrintSpooler.ConApp;
+﻿namespace PrintSpooler.ConApp;
 
 internal class Program
 {
   static void Main()
   {
     Console.Write("\n Print Spooler \n");
+
+    #region MY OUTDATED SOLUTION BEFORE THERE WHERE ANY UNITTESTS GIVEN
     /*
     ClassLib.Queue<PrintDataSet> printerSpooler = new();
 
@@ -27,7 +27,6 @@ internal class Program
     Console.WriteLine(printerSpooler);
     Console.WriteLine(printerSpooler.Count);
     */
-
     /*
     TextPrint text = new(priority: 10 , "Hello World");
     ColoredTextPrint colorText = new(priority: 1 , "Hello colorfull World");
@@ -38,13 +37,13 @@ internal class Program
     druckwarteschlange.Enqueue(text);
     druckwarteschlange.Enqueue(colorText);
     */
+    #endregion
 
     ClassLib.PriorityQueue<int , string> printSpooler = new();
 
     for (int i = 0 ; i < 25 ; i++)
     {
       int priority = RandomGenerator.Next(1 , 100);
-
       printSpooler.Push(priority , String.Format($"Druckauftrag #{i} mit der Priorität {priority}"));
     }
 
@@ -54,10 +53,8 @@ internal class Program
 
     while (printSpooler.IsEmpty == false)
       Console.WriteLine(printSpooler.Pop());
-
   }
 
   public static Random RandomGenerator { get; private set; }
   static Program() => RandomGenerator = new Random(DateTime.Now.Millisecond);
-
 }
